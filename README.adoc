@@ -1,0 +1,22 @@
+= Rodate Project
+
+
+Proyecto Java JSF utilizando SpringBoot para la gestión de ventas de vehículos.
+
+== Base de datos
+
+BD PostgreSQL 11
+
+1. Crear una base de datos llamada 'rodate' 
+2. Crear si no existe un usuario 'postgres' y contraseña 'postgres'
+3. Al ejecutar la aplicación se crearán las tablas y secuencias en la bd rodate
+
+== Pasos para ejecutar
+
+Para levantar el proyecto importar en Eclipse o STS como proyecto Maven, y ejecutar con Spring Boot, o con el comando:
+ 
+`mvn spring-boot:run` *o*
+
+`mvn clean package && java -jar target/rodate.war` 
+
+La aplicación estará disponible en http://localhost:8080/rodate
