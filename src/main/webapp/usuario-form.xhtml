@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui" xmlns:adm="http://github.com/adminfaces"
+                template="#{layoutMB.template}">
+
+    <ui:define name="title">
+        Formulario del usuario
+    </ui:define>
+    <ui:define name="body">
+        <h:form id="form" prependId="false">
+            <p:focus context="@form"/>
+            <p:panel styleClass="box-primary card">
+                <div id="main-buttons" class="hidden-sm hidden-xs">
+                    <p:commandButton value="Guardar" action="#{usuarioFormMB.save}" update="@form"
+                                     icon="fa fa-check" styleClass="btn-primary"/>
+
+                    <p:commandButton value="Atrás" immediate="true"
+                                     action="usuario-list?faces-redirect=true"
+                                     process="@this"
+                                     icon="fa fa-reply"/>
+                </div>
+                <p:splitButton value="Guardar" action="#{usuarioFormMB.save}" update="@form"
+                               icon="fa fa-check"
+                               styleClass="hidden-md hidden-lg btn-primary">
+                    <p:menuitem value="Atrás" action="usuario-list?faces-redirect=true"
+                                process="@this" immediate="true"
+                                icon="fa fa-reply"/>
+                </p:splitButton>
+
+                <hr/>
+
+                <div class="ui-g ui-fluid">
+                    <div class="ui-sm-12 ui-g-6 ui-g-nopad"> 
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:outputLabel for="id" value="ID"/>
+                        </div>
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:inputText id="id" value="#{usuarioFormMB.usuario.id}" readonly="true"
+                                         styleClass="form-control ui-state-disabled" style="width: 100%"/>
+                            <span class="help-block">
+                                    <p:message for="id"/>
+                            </span>
+                        </div>
+                    </div> 
+                    <div class="ui-sm-12 ui-g-6 ui-g-nopad"> 
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:outputLabel value="Nombre" for="in-nombre"/>
+                        </div>
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:inputText id="in-nombre" value="#{usuarioFormMB.usuario.nombre}" required="true"/>
+                            <span class="help-block"> 
+                                <p:message for="in-nombre"/>
+                            </span>
+                        </div>
+                    </div>     
+                    <div class="ui-sm-12 ui-g-6 ui-g-nopad"> 
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:outputLabel value="Apellido" for="in-apellido"/>
+                        </div>
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:inputText id="in-apellido" value="#{usuarioFormMB.usuario.apellido}" required="true"/>
+                            <span class="help-block"> 
+                                <p:message for="in-apellido"/>
+                            </span>
+                        </div>
+                    </div>     
+                    <div class="ui-sm-12 ui-g-6 ui-g-nopad">     
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:outputLabel value="Email" for="in-email"/>
+                        </div>
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:inputText id="in-email" value="#{usuarioFormMB.usuario.email}" required="true"/>
+                            <span class="help-block"> 
+                                <p:message for="in-email"/>
+                            </span>
+                        </div>
+                    </div>     
+                    <div class="ui-sm-12 ui-g-6 ui-g-nopad">     
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:outputLabel value="Login" for="in-login"/>
+                        </div>
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:inputText id="in-login" value="#{usuarioFormMB.usuario.login}" required="true"/>
+                            <span class="help-block"> 
+                                <p:message for="in-login"/>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </p:panel>
+
+            <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" styleClass="box-danger box-solid">
+                <p:commandButton value="Sí" type="button" styleClass="btn-material btn-primary ui-confirmdialog-yes"
+                                 icon="fa fa-check"/>
+                <p:commandButton value="No" type="button" styleClass="btn-material btn-danger ui-confirmdialog-no"
+                                 icon="fa fa-close"/>
+            </p:confirmDialog>
+        </h:form>
+
+
+    </ui:define>
+
+</ui:composition>
